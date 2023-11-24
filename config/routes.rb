@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'home/transactions'
-  get 'home/accounts'
-  get 'home/wallet'
+  get 'transaction',to:'home#transactions'
+  get 'accounts',to:'home#accounts'
+  get 'wallet',to:'home#wallet'
   root to: "home#dashboard"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

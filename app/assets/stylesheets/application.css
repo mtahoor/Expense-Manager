@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.sign-out{
+    border: 1px;
+    background-color: transparent;
+}
