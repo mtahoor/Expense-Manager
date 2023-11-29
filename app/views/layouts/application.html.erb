@@ -17,17 +17,14 @@
     </script>
     <%end%>
     <%if alert%>
-    <%- flash.keys.each do |flash_key| %>
-    <%- next if flash_key.to_s == 'timedout' %>
-      <%= flash.discard(flash_key) %>
-    <%- end %>
-    <%end%>
+    <p><%=alert%></p>
+    <% end %>
     <% if current_user%>
     <%= render partial: 'layouts/navbar'%>
     <%end%>
     <div class="container">
       <%= yield %>
-      <%= render partial: 'layouts/footer' %>
     </div>
+      <%= render partial: 'layouts/footer' %>
   </body>
 </html>

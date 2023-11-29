@@ -1,0 +1,45 @@
+<div class="my-3 d-flex align-items-center justify-content-between">
+  <h1>
+      Accounts
+  </h1>
+  <div class=""> 
+    <%= link_to 'Add new Account', createAccount_path , style:"text-decoration:none;color:white", class:"btn btn-success" %>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col-2">#</th>
+      <th scope="col-2">Bank</th>
+      <th scope="col-2">Account Type</th>
+      <th scope="col-2">Account Number</th>
+      <th scope="col-2">Ammount</th>
+      <th scope="col-4">
+        <center>
+            Actions
+        </center>
+        </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @accounts.each_with_index do |acc,index| %>
+    <tr>
+      <th scope="row"><%=index+1%></th>
+      <td id='bank_name'><%=acc.bank_name%></td>
+      <td id='account_type'><%=acc.account_type%></td>
+      <td id='account_number'><%=acc.account_number%></td>
+      <td><%=acc.balance%></td>
+      <td>  
+          <center>
+            <%= button_to({controller: 'accounts',action: 'update',id:acc.id},method: :get ,class:'btn btn-primary',form:{class:'d-inline'}) do%>
+            <i class="fa-solid fa-pencil"></i>
+            <%end%>
+            <%= button_to({ controller: 'accounts', action: 'delete' }, method: :delete, params: { id: acc }, class: 'btn btn-danger', form: { data: { turbo_confirm: 'Are you sure to delete this Account?' },class:'d-inline' }) do %>
+            <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </center>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

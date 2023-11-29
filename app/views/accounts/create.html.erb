@@ -1,0 +1,33 @@
+<div class="row g-0">
+    <div class="col-lg-4 col-md-3 col-0">
+    </div>
+    <div class="col-lg-4 col-md-6 border border-2 border-success rounded mt-5 p-3"> 
+            <h4>Add Account Details</h4>
+        
+            <%= form_with(model: @account) do |form| %>
+            <div>
+                <%= form.label :bank_name %>
+                <%= form.text_field :bank_name, class:'form-control' %>
+            </div>
+
+            <div>
+                <%= form.label :account_type %>
+                <%= form.text_field :account_type, class:'form-control' %>
+            </div>
+
+            <div>
+                <%= form.label :account_number %>
+                <%= form.text_field :account_number, class:'form-control' %>
+            </div>
+
+                <center>
+                    <%= form.submit "Create Account",class:'btn btn-success mt-2' %>
+                </center>
+            <% end %>
+    </div>
+    <div class="col-lg-4 col-md-3"></div>
+    <script>
+        console.log('ehehhe')
+    </script>
+</div>
+
