@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'accounts',to: 'accounts#index'
-  get 'createAccount', to:'accounts#create'
-  post 'createAccount', to:'accounts#create'
+  get 'accounts/create', to:'accounts#create', as:'createAccount'
+  post 'accounts/create', to:'accounts#create'
   delete 'accounts',to:'accounts#delete' , as:'deleteAccount'
   get 'accounts/update/:id', to: 'accounts#update'
   put 'accounts/update/:id', to: 'accounts#updated', as:'updateAccount'

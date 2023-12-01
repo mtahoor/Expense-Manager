@@ -21,7 +21,12 @@ class AccountsController < ApplicationController
   end
 
   def updated
-    puts @account
+    @account=Account.find(params[:id])
+    if @account.update(getAccParams)
+      redirect_to '/accounts'
+    else
+      flash[:alert]=@account.errors
+    end
   end
 
   def delete
@@ -34,5 +39,8 @@ class AccountsController < ApplicationController
   private
   def getParams
     params.permit(:bank_name, :account_type, :account_number)
+  end
+  def getAccParams
+    params.require(:account).permit(:bank_name, :account_type, :account_number)
   end
 end

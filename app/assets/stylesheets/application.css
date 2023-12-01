@@ -17,3 +17,8 @@
     border: 1px;
     background-color: transparent;
 }
+.center-Inpage{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+}
