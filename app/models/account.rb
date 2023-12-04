@@ -3,4 +3,5 @@ class Account < ApplicationRecord
     validates :bank_name ,presence: true,length: {minimum:3,maximum:100}
     validates :account_type ,presence: true,length: {minimum:3,maximum:100}
     belongs_to :user
+    has_many :transactions
 end
