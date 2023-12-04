@@ -22,3 +22,8 @@
     top: 50%;
     right: 50%;
 }
+.r-link{
+    text-decoration: none;
+    color: black;
+    padding: 0rem 0.5rem;
+}

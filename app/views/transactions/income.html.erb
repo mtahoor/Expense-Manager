@@ -2,11 +2,11 @@
     <div class="col-lg-4 col-md-3 col-0">
     </div>
     <div class="col-lg-4 col-md-6 border border-2 border-success rounded mt-5 p-3"> 
-            <h4>Add Account Details</h4>
+            <h4>Add Transaction Details</h4>
         
-            <%= form_with(model: @account) do |form| %>
+            <%= form_with do |form| %>
             <div>
-                <%= form.label :bank_name %>
+                <%= form.label :income_for %>
                 <%= form.text_field :bank_name, class:'form-control' %>
             </div>
 

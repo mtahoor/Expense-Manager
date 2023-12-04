@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+  get 'transactions/index'
+  get 'transaction/create/income', to:'transactions#income'
+  post 'transaction/create/income', to:'transactions#income'
+  get 'transaction/create/bankTransfer', to:'transactions#bankTransfer'
+  get 'transaction/create/expense', to:'transactions#expense' 
   get 'accounts',to: 'accounts#index'
   get 'accounts/create', to:'accounts#create', as:'createAccount'
   post 'accounts/create', to:'accounts#create'
   delete 'accounts',to:'accounts#delete' , as:'deleteAccount'
   get 'accounts/update/:id', to: 'accounts#update'
   put 'accounts/update/:id', to: 'accounts#updated', as:'updateAccount'
-  get 'transaction',to:'home#transactions'
+  get 'transaction',to:'transactions#index'
   get 'wallet',to:'home#wallet'
   root to: "home#dashboard"
   devise_for :users
