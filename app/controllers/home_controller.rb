@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def dashboard
-    puts "#{current_user.id}"
+
   end
 
 
