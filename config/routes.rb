@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   get 'transactions/index'
   get 'transaction/create/income', to:'transactions#income'
-  post 'transaction/create/income', to:'transactions#income'
+  post 'transaction/create/income', to:'transactions#income_submit'
   get 'transaction/create/bankTransfer', to:'transactions#bankTransfer'
+  post 'transaction/create/bankTransfer', to:'transactions#bankTransfer_submit'
   get 'transaction/create/expense', to:'transactions#expense' 
   get 'accounts',to: 'accounts#index'
   get 'accounts/create', to:'accounts#create', as:'createAccount'
