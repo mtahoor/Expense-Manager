@@ -1,2 +1,49 @@
-<h1>Transactions#expense</h1>
-<p>Find me in app/views/transactions/expense.html.erb</p>
+<div class="row g-0">
+  <div class="col-lg-4 col-md-3 col-0"></div>
+  <div
+    class="col-lg-4 col-md-6 border border-2 border-success rounded mt-5 p-3"
+  >
+    <h4>Add Expense Details</h4>
+
+    <%= form_with(model:@expense,url:expense_path) do |form| %>
+
+    <div>
+      <%= form.label :transaction_type, "Paid with" %> <%=
+      form.select:paid_with, options_for_select(['Account',
+      'Wallet']),{},{class:'form-select',id:"transaction-type",
+      data:{controller:'hello',action:"change->hello#change_transaction_type" }}
+      %>
+    </div>
+
+    <div id="accounts">
+      <%= form.label :account_id, "Select an Account" %> <%=
+      form.select:account_id, options_for_select(@accounts.map {
+      |account|["#{account.bank_name} - #{account.account_number}", account.id]
+      }), {},class: 'form-select' %>
+    </div>
+    <div>
+      <%= form.label :expense_type, "Expense Type" %> 
+      <%= form.select:expense_type, Expense.expense_types.keys,{}, class:'form-select'%>
+    </div>
+    <div>
+      <%= form.label :Date, "Select the date" %> <%= form.date_field :Date,
+      max:0.days.ago, class:'form-control', required:true %>
+    </div>
+    <div>
+      <%= form.label :Amount %> <%= form.text_field :Amount,
+      class:'form-control',required:true ,placeholder: 'Enter Ammount' %>
+    </div>
+
+    <div>
+      <%= form.label :Note %> <%= form.text_field :Note,
+      class:'form-control',placeholder: 'Note(Optional)' %>
+    </div>
+
+    <center>
+      <%= form.submit "Create Expense Transaction",class:'btn btn-success mt-2'
+      %>
+    </center>
+    <% end %>
+  </div>
+  <div class="col-lg-4 col-md-3"></div>
+</div>

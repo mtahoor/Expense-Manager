@@ -1,0 +1,31 @@
+<center class="my-3">
+  <h3>Expense Transactions</h3>
+</center>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col-2">#</th>
+      <th scope="col-2">Paid With</th>
+      <th scope="col-2">Ammount</th>
+      <th scope="col-2">Type</th>
+      <th scope="col-2">Date</th>
+      <th scope="col-2">Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @income.each_with_index do |inc,index| %>
+    <tr>
+      <th scope="row"><%=index+1%></th>
+      <% if inc.account_id%> <% account = Account.find_by(id: inc.account_id) %>
+      <td id="bank_name"><%=account.bank_name%>-<%=account.account_number%></td>
+      <%else%>
+      <td id="bank_name">Wallet</td>
+      <%end%>
+      <td id="account_type"><%=inc.amount%></td>
+      <td id="account_type"><%=inc.expense_type%></td>
+      <td id="account_number"><%=inc.date%></td>
+      <td id="account_number"><%=inc.note%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

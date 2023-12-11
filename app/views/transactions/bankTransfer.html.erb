@@ -23,8 +23,8 @@
     </div>
 
     <div id="accounts" style="display: none">
-      <%= form.label :account_id, "Select an Account" %> <%=
-      form.select:account_id, options_for_select(@accounts.map {
+      <%= form.label :account_id_r, "Select an Account" %> <%=
+      form.select:account_id_r, options_for_select(@accounts.map {
       |account|["#{account.bank_name} - #{account.account_number}", account.id]
       }), {},class: 'form-select' %>
     </div>

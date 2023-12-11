@@ -13,17 +13,20 @@
  *= require_tree .
  *= require_self
  */
-.sign-out{
-    border: 1px;
-    background-color: transparent;
+.sign-out {
+  border: 1px;
+  background-color: transparent;
 }
-.center-Inpage{
-    position: absolute;
-    top: 50%;
-    right: 50%;
+.center-Inpage {
+  position: absolute;
+  top: 50%;
+  right: 50%;
 }
-.r-link{
-    text-decoration: none;
-    color: black;
-    padding: 0rem 0.5rem;
+.r-link {
+  text-decoration: none;
+  color: black;
+  padding: 0rem 0.5rem;
+}
+.nav-item {
+  cursor: pointer;
 }

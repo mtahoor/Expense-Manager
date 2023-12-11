@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'transaction/create/bankTransfer', to:'transactions#bankTransfer'
   post 'transaction/create/bankTransfer', to:'transactions#bankTransfer_submit'
   get 'transaction/create/expense', to:'transactions#expense' 
+  post 'transaction/create/expense', to:'transactions#expense_create',as:'expense'  
   get 'accounts',to: 'accounts#index'
   get 'accounts/create', to:'accounts#create', as:'createAccount'
   post 'accounts/create', to:'accounts#create'
