@@ -102,7 +102,7 @@ class TransactionsController < ApplicationController
             current_user.expenses.create(wallet_id:wallet.id,amount:p[:Amount],date:p[:Date],note:p[:Note],expense_type:p[:expense_type])
             redirect_to action: "index"
           else
-            flash[:alert]="Account balnce is low to pay the expense Amount"
+            flash[:alert]="Wallet balnce is low to pay the expense Amount"
             redirect_to action: "expense"  
           end
         end

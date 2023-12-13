@@ -16,8 +16,21 @@
       alert('<%= notice%>');
     </script>
     <%end%>
-    <%if alert%>
-    <p><%=alert%></p>
+    <% if flash[:alert].is_a?(Hash) %>
+        <% flash[:alert].each do |key, value| %>
+          <strong><%= key.humanize %>:</strong>
+          <% if value.is_a?(Array) %>
+            <ul>
+              <% value.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <%= value %>
+          <% end %>
+        <% end %>
+    <% elsif flash[:alert] %>
+        <p><%= flash[:alert] %></p>
     <% end %>
     <% if current_user%>
     <%= render partial: 'layouts/navbar'%>

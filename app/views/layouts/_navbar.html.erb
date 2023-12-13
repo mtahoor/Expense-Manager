@@ -1,21 +1,33 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container">
     <a class="navbar-brand">Expense Manager</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+    <div
+      class="collapse navbar-collapse justify-content-end"
+      id="navbarNavAltMarkup"
+    >
       <div class="navbar-nav">
-        <a class="nav-link <%if request.path=='/'%> active<%end%>" href="/">Dashboard</a>
-        <a class="nav-link <%if request.path=='/accounts'%> active<%end%>" href="accounts">Accounts</a>
-        <a class="nav-link <%if request.path=='/transaction'%> active<%end%>" href="transaction">Transactions</a>
-        <a class="nav-link <%if request.path=='/wallet'%> active<%end%>" href="wallet">Wallet</a>
+        <a class="nav-link <%if request.path=='/'%> active<%end%>" href="/"
+          >Dashboard</a
+        >
+        <%= link_to 'Accounts', accounts_path, class: 'nav-link' + (request.path == '/accounts' ? ' active' : '') %>
+        <%= link_to 'Transactions', transactions_index_path, class: 'nav-link' + (request.path == '/transaction' ? ' active' : '') %>
+        <%= link_to 'Wallet', wallet_path, class: 'nav-link' + (request.path == '/wallet' ? ' active' : '') %>
         <a class="nav-link">
-        <%= button_to 'Sign Out',destroy_user_session_path,method: :delete,class:"sign-out"%>
+          <%= button_to 'Sign Out',destroy_user_session_path,method:
+          :delete,class:"sign-out"%>
         </a>
       </div>
     </div>
   </div>
-</nav>  
-
-
+</nav>

@@ -27,6 +27,10 @@ gem "importmap-rails"
 gem "turbo-rails"
 # use view component to create dynamic Component
 gem "view_component"
+# use chart kick to create charts
+gem 'chartkick'
+#install pundit to create policy for the users
+gem 'pundit'
 
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]

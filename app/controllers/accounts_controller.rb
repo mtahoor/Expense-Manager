@@ -1,11 +1,14 @@
 class AccountsController < ApplicationController
+  include Pundit
   def index
     @accounts=current_user.accounts.all
+    authorize  @accounts
   end
 
   def create
     if request.post?
       @account=current_user.accounts.new(getParams)
+      authorize @account
       if @account.save
         redirect_to '/accounts'
       else
@@ -30,9 +33,14 @@ class AccountsController < ApplicationController
   end
 
   def delete
-    Account.destroy_by(id:params[:id])
-    flash[:alert]="Account Deleted Successfully"
-    redirect_to '/accounts'
+    begin
+      Account.destroy_by(id:params[:id])
+      flash[:alert]="Account Deleted Successfully"
+      redirect_to '/accounts'
+    rescue=>e
+      flash[:alert]="Account can't be deleted Cause it have some transactions"
+      redirect_to '/accounts'
+    end
   end
 
 
