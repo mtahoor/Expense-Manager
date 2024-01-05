@@ -1,7 +1,7 @@
 class AccountPolicy < ApplicationPolicy
 
   def create?
-    user.present.false?
+    user.present? && record.user == user
   end
 
   def update?

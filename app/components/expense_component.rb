@@ -4,7 +4,7 @@ class ExpenseComponent < ViewComponent::Base
 
 
     def initialize(user:)
-        @income=user.expenses.all
+        @income=user.expenses.all.order(created_at: :desc)
     end
 
 

@@ -55,7 +55,7 @@ class TransactionsController < ApplicationController
                 redirect_to action: "bankTransfer"
                 raise ActiveRecord::Rollback , "Cannot transfer money between one account"
               end
-              current_user.incomes.create(account_id:params[:account_id_r],amount:params[:Amount],date:params[:Date],note:"Amount Recived From Another Account")
+              current_user.incomes.create(account_id:params[:account_id_r],amount:params[:Amount],date:params[:Date],note:"Amount Recived From #{account.bank_name} #{account.account_number}")
               recevier_account = current_user.accounts.find(params[:account_id_r].to_i)
               recevier_account.increment(:balance, params[:Amount].to_i)
               recevier_account.save
@@ -117,6 +117,6 @@ class TransactionsController < ApplicationController
 
   private
   def AllTranactions
-    @transaction=current_user.transactions
+    @transaction=current_user.transactions.order(created_at: :desc)
   end
 end
